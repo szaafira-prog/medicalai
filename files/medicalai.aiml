@@ -1,4 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+
+<!-- Greeting -->
+<category>
+  <pattern>HELLO</pattern>
+  <template>
+    Hello! I'm <b>MediAI</b> — your virtual health assistant. 
+    Ask me about common illnesses, body functions, or wellness tips!
+  </template>
+</category>
+
+<!-- Keyword: WHAT IS ... -->
+<category>
+  <pattern>WHAT IS *</pattern>
+  <template>
+    <think><set name="topic"><star/></set></think>
+    Here's what I know about <get name="topic"/>:
+    <condition name="topic">
+      <li value="FEVER">Fever is the body’s natural response to infection, usually when temperature rises above 37.5°C.</li>
+      <li value="DIABETES">Diabetes is a condition where blood sugar levels are too high due to lack of insulin or poor insulin response.</li>
+      <li value="BLOOD PRESSURE">Blood pressure measures the force of blood pushing against artery walls. Normal is around 120/80 mmHg.</li>
+      <li value="DEHYDRATION">Dehydration occurs when your body loses more fluids than it takes in. Drink water frequently!</li>
+      <li value="HEADACHE">Headache can be caused by stress, dehydration, or fatigue. Rest and hydration often help.</li>
+      <li value="COLD">A common cold is a viral infection that affects the upper respiratory tract — rest and fluids help recovery.</li>
+      <li value="ANEMIA">Anemia is a condition where there are not enough red blood cells to carry oxygen — often due to low iron.</li>
+      <li value="STRESS">Stress is a natural response to challenges — try relaxation techniques, deep breathing, or a short walk.</li>
+      <li value="DIGESTION">Digestion is the process where food is broken down into nutrients your body can use for energy.</li>
+      <li value="EXERCISE">Exercise keeps your body fit, improves circulation, and boosts mental health. 30 minutes a day is great!</li>
+      <li>I’m still learning about <get name="topic"/> — could you ask that in a different way?</li>
+    </condition>
+  </template>
+</category>
+
+<!-- Keyword: HOW DOES ... WORK -->
+<category>
+  <pattern>HOW DOES *</pattern>
+  <template>
+    <think><set name="process"><star/></set></think>
+    Interesting question! The process <get name="process"/> generally works through your body’s natural systems.
+    For example, organs and enzymes play key roles in maintaining balance and health.
+  </template>
+</category>
+
+<!-- Keyword: TIPS FOR ... -->
+<category>
+  <pattern>TIPS FOR *</pattern>
+  <template>
+    <think><set name="topic"><star/></set></think>
+    Here are some tips for <get name="topic"/>:
+    <condition name="topic">
+      <li value="BETTER SLEEP">Avoid screens before bed, keep your room dark, and maintain a consistent bedtime.</li>
+      <li value="STRESS RELIEF">Take deep breaths, meditate, or go for a walk — stress fades with mindful breaks.</li>
+      <li value="HYDRATION">Carry a water bottle and drink a glass of water every couple of hours.</li>
+      <li value="IMMUNITY">Eat vitamin-rich foods, sleep well, and stay active — a healthy lifestyle boosts your immune system.</li>
+      <li>Always focus on balance, good rest, and positive routines.</li>
+    </condition>
+  </template>
+</category>
+
+<!-- Keyword: SYMPTOMS OF ... -->
+<category>
+  <pattern>SYMPTOMS OF *</pattern>
+  <template>
+    <think><set name="disease"><star/></set></think>
+    The common symptoms of <get name="disease"/> include:
+    <condition name="disease">
+      <li value="COLD">Sneezing, sore throat, runny nose, and mild fever.</li>
+      <li value="FEVER">High temperature, chills, sweating, and tiredness.</li>
+      <li value="DEHYDRATION">Dry mouth, dizziness, dark urine, and fatigue.</li>
+      <li value="ANEMIA">Weakness, pale skin, and shortness of breath.</li>
+      <li>I'm still learning the symptoms of <get name="disease"/> — try rephrasing or ask me something else!</li>
+    </condition>
+  </template>
+</category>
+
+<!-- Keyword: FIRST AID FOR ... -->
+<category>
+  <pattern>FIRST AID FOR *</pattern>
+  <template>
+    <think><set name="injury"><star/></set></think>
+    Here's some basic first aid advice for <get name="injury"/>:
+    <condition name="injury">
+      <li value="BURNS">Cool the area under running water for 10 minutes, don’t apply ice directly.</li>
+      <li value="CUTS">Clean the wound, apply antiseptic, and cover with a sterile bandage.</li>
+      <li value="NOSEBLEED">Lean forward and pinch the nose for 10 minutes — don’t tilt your head back.</li>
+      <li>For serious injuries, please contact a healthcare professional immediately.</li>
+    </condition>
+  </template>
+</category>
+
+<!-- Keyword: WHO DISCOVERED ... -->
+<category>
+  <pattern>WHO DISCOVERED *</pattern>
+  <template>
+    Many medical breakthroughs came from great scientists!
+    For example, Alexander Fleming discovered penicillin, and Edward Jenner developed the first vaccine.
+  </template>
+</category>
+
+<!-- Fallback -->
+<category>
+  <pattern>*</pattern>
+  <template>
+    That’s an interesting question! I may not know that yet — try asking like “What is fever?”, “Tips for better sleep”, or “First aid for burns.”
+  </template>
+</category>
+
+
+
 </aiml>
